@@ -1,3 +1,23 @@
+# e.g.
+```
+git clone https://github.com/animesh/FASTGA
+cd FASTGA/
+chmod 755 *
+export PATH=$PWD:$PATH
+cp /cluster/projects/nn9036k/TK/DNT/rnaspades/pooled_reads.transcripts.fa .
+cp ../hg38v110/genome.fa .
+./FastGA genome.fa pooled_reads.transcripts.fa
+./FastGA genome.fa genome.fa
+./FastGA genome.fa genome.fa > align.txt
+grep "^>" genome.fa  | wc
+perl -e "print 194*194"
+awk '{print $1}' align.txt | less
+awk '{print $1}' align.txt | sort -r | uniq -c | wc
+awk '{if($1 == $6){print $6}}' align.txt | sort -r | uniq -c
+awk '{if($1 != $6){print $1 }}' align.txt | sort -r | uniq -c
+```
+
+
 # FastGA: A Fast Genome Aligner
   
 <font size ="4">**_Author:  Gene Myers_**<br>
